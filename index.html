@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>API FETCH</title>
+
+
+    <!-- CSS FILE LINK -->
+
+    <link rel="stylesheet" href="Api.css">
+
+
+    <!-- FONTAWSOME ICONS -->
+
+    <script src="https://kit.fontawesome.com/1f4ff04947.js" crossorigin="anonymous"></script>
+
+
+    <!-- BOOTSTRAP CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        
+
+    <!-- Used CDN -> to get Jquery Library -> Rquired for toastr js Library  -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+
+    <!-- Toastr js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- ROW 1ST-->
+        <div class="row">
+            <!-- COL -->
+            <div class="col-lg-12">
+                <!-- TABLE -->
+                <table class="table mt-3 table-striped" id="table">
+
+                    <!-- Search Bar -->
+                    <div class="mt-4 d-flex justify-content-between" id="input_box">
+
+                        <input type="text" placeholder="Search" class="input" id="Input-field" name=""
+                            onkeyup="searchBar()">
+
+                        <i class="fa-solid fa-sort" onclick="Sorting()" title="Sort By Price" id="Sorting"></i>
+                    </div>
+
+                    <thead>
+                        <tr class="Header text-center">
+                            <!-- ID -->
+                            <th scope="col" class="Heading_title headings_font"></th>
+                            <!-- TITLE -->
+                            <th scope="col" class="Heading_title headings_font"></th>
+                            <!-- PRICE -->
+                            <th scope="col" class="Heading_title headings_font"></th>
+                            <!-- DESCRIPTION -->
+                            <th scope="col" class="Heading_title headings_font"></th>
+                            <!-- CATEGORY -->
+                            <th scope="col" class="Heading_title headings_font"></th>
+                            <!-- Image-->
+                            <th scope="col" class="Heading_title headings_font"></th>
+                            <!-- Rating -->
+                            <th scope="col" colspan="2" class="Heading_title headings_font" id="Rating_header"></th>
+                        </tr>
+
+                    </thead>
+                    <tbody id="TableBody">
+
+                        <!-- ROWS -->
+
+                        <!-- ONE -->
+                        <tr class="Product PaginationFirst10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- TWO -->
+                        <tr class="Product PaginationFirst10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"  id="2nd"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- THREE -->
+                        <tr class="Product PaginationFirst10">
+
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- FOUR -->
+                        <tr class="Product PaginationFirst10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- FIVE -->
+                        <tr class="Product PaginationFirst10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- SIX -->
+                        <tr class="Product PaginationFirst10">
+
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- SEVEN -->
+                        <tr class="Product PaginationFirst10">
+
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- EIGHT -->
+                        <tr class="Product PaginationFirst10">
+
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- NINE -->
+                        <tr class="Product PaginationFirst10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- TEN -->
+                        <tr class="Product PaginationFirst10">
+                            <td class="Output_data_id  id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- ELEVEN -->
+                        <tr class="Product PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- TWELVE -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 13 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 14 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 15 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 16 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 17 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 18 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 19 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id"></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- 20 -->
+                        <tr class="Product  PaginationLast10">
+                            <td class="Output_data_id id "></td>
+                            <td class="Title"></td>
+                            <td class="Price"></td>
+                            <td class="Description"></td>
+                            <td class="Category"></td>
+                            <td class="Image"><img class="Image_File" /></td>
+                            <td class="rate"></td>
+                            <td class="count"></td>
+                        </tr>
+
+                        <!-- END OF ALL ROWS -->
+                    </tbody>
+
+                </table>
+                <!-- END TABLE -->
+
+                <button type="" class="NextPrevious" id="Next" onclick="Next()">Next</button>
+                <!-- <br/> -->
+                <button type="" class="NextPrevious" id="Previous" onclick="Previous()">Previous</button>
+            </div>
+            <!-- END COL -->
+        </div>
+        <!-- END ROW-1 -->
+    </div>
+    <!-- End Main Container -->
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="Api.js"></script>
+</body>
+
+</html>
